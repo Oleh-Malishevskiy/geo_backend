@@ -24,7 +24,9 @@ from django.urls import path, include
 router = routers.DefaultRouter()
 
 router.register('products', viewset=views.MyCrud)
+router.register('stats', viewset=views.MyStatCrud)
 urlpatterns = [
+    path('stats/', include(router.urls)),
     path('products/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api/v1/',include('djoser.urls')),

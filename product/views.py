@@ -8,9 +8,13 @@ from rest_framework import viewsets
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView
 from .serializers import CrudSerializer
+from .serializers import CrudStatSerializer
 
 
-
+class MyStatCrud(viewsets.ModelViewSet):
+    serializer_class = CrudStatSerializer
+    queryset = Product.objects.all()
+    
 class MyCrud(viewsets.ModelViewSet):
     serializer_class = CrudSerializer
     queryset = Product.objects.all()

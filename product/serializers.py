@@ -36,3 +36,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = (
             "__all__"
         )
+
+class CrudStatSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Product
+        fields = "__all__"
