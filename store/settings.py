@@ -89,10 +89,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+SIMPLE_JWT = {
+
+     # Use JWT 
+     'AUTH_HEADER_TYPES': ('JWT',),
+     # 'AUTH_HEADER_TYPES': ('Bearer',),
+
+}
 REST_FRAMEWORK = {
    'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.TokenAuthentication',
-   ),
+            'rest_framework.authentication.BasicAuthentication',  # enables simple command line authentication
+            'rest_framework.authentication.SessionAuthentication',
+            'rest_framework.authentication.TokenAuthentication',
+        ),
    'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAdminUser'
    ),
