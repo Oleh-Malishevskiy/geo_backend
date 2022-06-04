@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from io import BytesIO
 
 
@@ -21,14 +22,14 @@ class Tenant(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField()
-    lon = models.DecimalField(max_digits=18, decimal_places=16)
-    lat = models.DecimalField(max_digits=18, decimal_places=16)
+    lon = models.DecimalField(max_digits=18,max_decimal_places=16)
+    lat = models.DecimalField(max_digits=18, max_decimal_places=16)
     place = models.CharField(max_length=255)
     depth = models.DecimalField(max_digits=6, decimal_places=2)
     square = models.DecimalField(max_digits=6, decimal_places=2)
     typez = models.CharField(max_length=255)
     descriptions = models.TextField(max_length=255)
-    thumbnail = models.ImageField()
+    thumbnail = models.ImageField(NULL = True)
     class Meta:
         ordering = ('name',)
     
