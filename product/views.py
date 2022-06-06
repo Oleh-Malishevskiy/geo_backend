@@ -23,7 +23,7 @@ class MyCrud(viewsets.ModelViewSet):
 class LatestProductsList(APIView):
     
     def get(self, request, format=None):
-        category = Category.objects.all()[0:4]
+        category = Category.objects.all()
         serializer = CategorySerializer(category, many=True)
         return Response(serializer.data)
 
